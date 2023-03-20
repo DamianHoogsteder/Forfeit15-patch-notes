@@ -1,0 +1,17 @@
+﻿include:
+  -project: 'Forfeit15'
+  file: 'github/base.github.ci.yml'
+
+variables:
+  DOTNET_PROJECT_NAME: "Forfeit15.Patchnotes.Api"
+  DOCKERFILE: "$DOTNET_PROJECT_NAME/Dockerfile"
+  
+dotnet_build:
+  extends: .dotnet_build_base
+  
+dotnet_test:
+  extends: .dotnet_test_base
+  
+docker_build:
+  extends: .docker_build_base
+  
