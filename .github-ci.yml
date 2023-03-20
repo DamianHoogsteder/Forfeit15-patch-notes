@@ -1,6 +1,6 @@
 ﻿include:
-  -project: 'Forfeit15'
-  file: 'github/base.github.ci.yml'
+  -project: 'DamianHoogsteder/Forfeit15'
+  file: '/github/base.github.ci.yml'
 
 variables:
   DOTNET_PROJECT_NAME: "Forfeit15.Patchnotes.Api"
