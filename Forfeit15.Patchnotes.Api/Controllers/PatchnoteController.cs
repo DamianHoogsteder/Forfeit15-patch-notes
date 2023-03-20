@@ -11,7 +11,22 @@ namespace Forfeit15.Patchnotes.Api.Controllers;
 [Route("[controller]")]
 public class PatchnoteController
 {
-    //Service
-    
-    
+    //Services
+
+    public PatchnoteController()
+    {
+        
+    }
+
+    /// <summary>
+    /// Gets a collection of patchnotes
+    /// </summary>
+    /// <returns>Collection of patchnotes</returns>
+    [Authorize]
+    [HttpGet("all")]
+    [ProducesResponseType(typeof(PatchNote), StatusCodes.Status200OK)]
+    public async Task<IActionResult> AllPatchNotes()
+    {
+        
+    }
 }
