@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
 
-namespace Forfeit15.Patchnotes.Api.Controllers;
+namespace Forfeit15.Patchnotes.Controllers;
 
 /// <summary>
 /// Acties rondom patchnotes
@@ -24,9 +23,9 @@ public class PatchnoteController
     /// <returns>Collection of patchnotes</returns>
     [Authorize]
     [HttpGet("all")]
-    [ProducesResponseType(typeof(PatchNote), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     public async Task<IActionResult> AllPatchNotes()
     {
-        
+        return null;
     }
 }

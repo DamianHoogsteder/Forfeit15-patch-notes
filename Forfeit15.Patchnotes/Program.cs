@@ -1,5 +1,5 @@
-void RunAction()
-{
+using System.Diagnostics.CodeAnalysis;
+using Microsoft.Extensions.Options;
 
 //HOST
     var builder = WebApplication.CreateBuilder(args);
@@ -15,20 +15,18 @@ void RunAction()
 
 //SWAGGER
     app.UseSwagger();
-    app.UseSwaggerUi<Program>(options =>
-        {
-            var applicationOptions = app.Services.GetRequiredService<IOptions<Auth0ApplicationOptions>>();
-            options.PopulateAuth0AuthorizationForm(applicationOptions);
-        }
-    );
+    // app.UseSwaggerUI<Program>(options =>
+    //     {
+    //         var applicationOptions = app.Services.GetRequiredService<IOptions<Auth0ApplicationOptions>>();
+    //         options.PopulateAuth0AuthorizationForm(applicationOptions);
+    //     }
+    // );
 
 //AUTHENTICATION MIDDLEWARE
     app.MapControllers();
 
     app.Run();
-}
 
-await HostRunner.RunAsync(RunAction);
 
 [ExcludeFromCodeCoverage]
 #pragma warning disable CA1050
