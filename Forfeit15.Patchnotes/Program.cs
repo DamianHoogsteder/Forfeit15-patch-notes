@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
-using Microsoft.Extensions.Options;
+using Forfeit15.Patchnotes.Postgres.Extensions;
+using Forfeit15.Postgres.Contexts;
+using Forfeit15.Postgres.Extensions;
 
 //HOST
     var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +9,8 @@ using Microsoft.Extensions.Options;
 //CONFIGURATION
 
 //INJECTED SERVICES
-
+    builder.Services.AddPatchNotePostgres(builder.Configuration);
+    
 //APP
     var app = builder.Build();
 
@@ -15,14 +18,9 @@ using Microsoft.Extensions.Options;
 
 //SWAGGER
     app.UseSwagger();
-    // app.UseSwaggerUI<Program>(options =>
-    //     {
-    //         var applicationOptions = app.Services.GetRequiredService<IOptions<Auth0ApplicationOptions>>();
-    //         options.PopulateAuth0AuthorizationForm(applicationOptions);
-    //     }
-    // );
+    app.UseSwaggerUI();
 
-//AUTHENTICATION MIDDLEWARE
+    app.MigrateDatabases();
     app.MapControllers();
 
     app.Run();
