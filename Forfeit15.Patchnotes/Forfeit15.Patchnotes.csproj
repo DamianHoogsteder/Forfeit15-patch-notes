@@ -19,6 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Forfeit15.Patchnotes.Core\Forfeit15.Patchnotes.Core.csproj" />
       <ProjectReference Include="..\Forfeit15.Patchnotes.Postgres\Forfeit15.Patchnotes.Postgres.csproj" />
     </ItemGroup>
 
