@@ -2,8 +2,9 @@
   "profiles": {
     "Forfeit15.Patchnotes": {
       "commandName": "Project",
+      "dotnetRunMessages": "true",
       "launchBrowser": true,
-      "lauchUrl": "swagger",
+      "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7043;http://localhost:5026",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

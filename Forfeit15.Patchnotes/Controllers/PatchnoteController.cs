@@ -25,20 +25,31 @@ public class PatchnoteController : ControllerBase
     /// Gets a collection of patchnotes
     /// </summary>
     /// <returns>Collection of patchnotes</returns>
-    //[Authorize]
+    [Authorize]
     [HttpGet("all")]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    public async Task<IActionResult> AllPatchNotes(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
         return Ok(await _patchnoteService.GetAllAsync(cancellationToken));
     }
-    
+
+    [Authorize]
+    [HttpGet("{Id}")]
+    [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> ById(Guid Id, CancellationToken cancellationToken)
+    {
+        return Ok(await _patchnoteService.GetByIdAsync(Id, cancellationToken));
+    }
+
+
     /// <summary>
     /// Gets a collection of patchnotes
     /// </summary>
     /// <returns>Collection of patchnotes</returns>
-    //[Authorize]
+    [Authorize]
     [HttpPost]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
