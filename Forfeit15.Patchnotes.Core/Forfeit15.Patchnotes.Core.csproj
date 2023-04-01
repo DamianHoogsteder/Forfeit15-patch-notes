@@ -10,5 +10,7 @@
       <PackageReference Include="Forfeit15.Postgres" Version="0.0.1" />
       <PackageReference Include="Refit" Version="6.3.2" />
     </ItemGroup>
-
+    <ItemGroup>
+        <ProjectReference Include="..\Forfeit15.Patchnotes.Postgres\Forfeit15.Patchnotes.Postgres.csproj" />
+    </ItemGroup>
 </Project>

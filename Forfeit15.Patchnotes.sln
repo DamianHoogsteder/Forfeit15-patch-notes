@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forfeit15.Patchnotes.Postgr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forfeit15.Patchnotes.Core", "Forfeit15.Patchnotes.Core\Forfeit15.Patchnotes.Core.csproj", "{EB49B30A-E630-42D8-9806-BBB19668129E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forfeit15.Patchnotes.Core.Tests", "Forfeit15.Patchnotes.Core.Tests\Forfeit15.Patchnotes.Core.Tests.csproj", "{8F70CDC5-407C-4CD4-8360-F6ED78CD0378}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{EB49B30A-E630-42D8-9806-BBB19668129E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB49B30A-E630-42D8-9806-BBB19668129E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB49B30A-E630-42D8-9806-BBB19668129E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F70CDC5-407C-4CD4-8360-F6ED78CD0378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F70CDC5-407C-4CD4-8360-F6ED78CD0378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F70CDC5-407C-4CD4-8360-F6ED78CD0378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F70CDC5-407C-4CD4-8360-F6ED78CD0378}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

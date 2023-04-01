@@ -10,5 +10,4 @@
       <PackageReference Include="Forfeit15.Postgres" Version="0.0.1" />
       <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
     </ItemGroup>
-
 </Project>
