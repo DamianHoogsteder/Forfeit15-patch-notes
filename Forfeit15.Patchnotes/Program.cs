@@ -1,10 +1,16 @@
 using System.Text.Json.Serialization;
 using Forfeit15.Patchnotes.ApiKeyAuth;
 using Forfeit15.Patchnotes.Core.Patchnotes.Services;
-using Forfeit15.Patchnotes.Core.Patchnotes.Services.Implementations;
+using Forfeit15.Patchnotes.Core.Patchnotes.Services.InfoNodes;
+using Forfeit15.Patchnotes.Core.Patchnotes.Services.InfoNodes.Implementations;
+using Forfeit15.Patchnotes.Core.Patchnotes.Services.Patchnotes;
+using Forfeit15.Patchnotes.Core.Patchnotes.Services.Patchnotes.Implementations;
 using Forfeit15.Patchnotes.Postgres.Extensions;
 using Forfeit15.Patchnotes.Postgres.Repositories;
-using Forfeit15.Patchnotes.Postgres.Repositories.Implementations;
+using Forfeit15.Patchnotes.Postgres.Repositories.InfoNodes;
+using Forfeit15.Patchnotes.Postgres.Repositories.InfoNodes.Implementations;
+using Forfeit15.Patchnotes.Postgres.Repositories.PatchNotes;
+using Forfeit15.Patchnotes.Postgres.Repositories.PatchNotes.Implementations;
 using Forfeit15.Postgres.Contexts;
 using Forfeit15.Postgres.Extensions;
 
@@ -21,6 +27,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => options.AddApiKeyAuth());
 builder.Services.AddTransient<IPatchnoteService, PatchnoteService>();
 builder.Services.AddTransient<IPatchnoteRepository, PatchnoteRepository>();
+builder.Services.AddTransient<IInfoNodeService, InfoNodeService>();
+builder.Services.AddTransient<IInfoNodeRepository, InfoNodeRepository>();
 
 builder.Services
     .AddControllers().AddJsonOptions(options =>

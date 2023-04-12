@@ -1,5 +1,6 @@
 ﻿using Forfeit15.Patchnotes.Core.Patchnotes.Contracts;
 using Forfeit15.Patchnotes.Core.Patchnotes.Services;
+using Forfeit15.Patchnotes.Core.Patchnotes.Services.Patchnotes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

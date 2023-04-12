@@ -2,7 +2,7 @@
 using Forfeit15.Patchnotes.Core.Patchnotes.Contracts;
 using Forfeit15.Postgres.Models;
 
-namespace Forfeit15.Patchnotes.Core.Patchnotes.Services;
+namespace Forfeit15.Patchnotes.Core.Patchnotes.Services.Patchnotes;
 
 public interface IPatchnoteService
 {

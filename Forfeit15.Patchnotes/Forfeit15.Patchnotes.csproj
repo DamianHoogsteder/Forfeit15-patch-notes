@@ -9,7 +9,7 @@
     <ItemGroup>
         <PackageReference Include="AspNetCore.Authentication.ApiKey" Version="7.0.0" />
         <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="6.0.2" />
-        <PackageReference Include="Forfeit15.Postgres" Version="0.0.1" />
+        <PackageReference Include="Forfeit15.Postgres" Version="0.0.5" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.4" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />

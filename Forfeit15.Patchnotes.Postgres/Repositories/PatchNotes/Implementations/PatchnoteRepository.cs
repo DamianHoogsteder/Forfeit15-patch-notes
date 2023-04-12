@@ -3,7 +3,7 @@ using Forfeit15.Postgres.Contexts;
 using Forfeit15.Postgres.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Forfeit15.Patchnotes.Postgres.Repositories.Implementations;
+namespace Forfeit15.Patchnotes.Postgres.Repositories.PatchNotes.Implementations;
 
 public class PatchnoteRepository : IPatchnoteRepository
 {

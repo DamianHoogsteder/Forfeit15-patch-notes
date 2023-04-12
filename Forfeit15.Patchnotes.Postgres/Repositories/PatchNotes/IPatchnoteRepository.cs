@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using Forfeit15.Postgres.Models;
 
-namespace Forfeit15.Patchnotes.Postgres.Repositories;
+namespace Forfeit15.Patchnotes.Postgres.Repositories.PatchNotes;
 
 public interface IPatchnoteRepository
 {

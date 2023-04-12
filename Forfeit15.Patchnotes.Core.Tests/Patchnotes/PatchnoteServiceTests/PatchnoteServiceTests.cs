@@ -1,7 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using FluentAssertions;
-using Forfeit15.Patchnotes.Core.Patchnotes.Services.Implementations;
+using Forfeit15.Patchnotes.Core.Patchnotes.Services.Patchnotes.Implementations;
 using Forfeit15.Patchnotes.Postgres.Repositories;
+using Forfeit15.Patchnotes.Postgres.Repositories.PatchNotes;
 using Forfeit15.Postgres.Models;
 using Moq;
 
