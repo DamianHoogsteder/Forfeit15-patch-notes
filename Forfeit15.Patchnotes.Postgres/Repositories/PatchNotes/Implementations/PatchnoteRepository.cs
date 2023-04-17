@@ -21,8 +21,9 @@ public class PatchnoteRepository : IPatchnoteRepository
 
     public async Task<PatchNote> ByIdAsync(Guid Id, CancellationToken cancellationToken)
     {
-        var patchNote =  await _patchNoteDbContext.PatchNotes.FirstOrDefaultAsync(x => x.Id == Id, cancellationToken);
-        return patchNote;
+        var patchNote = await _patchNoteDbContext.PatchNotes.Include(p => p.InfoNodes)
+            .FirstOrDefaultAsync(x => x.Id == Id, cancellationToken);
+        return patchNote!;
     }
 
     public async Task AddAsync(PatchNote request, CancellationToken cancellationToken)
