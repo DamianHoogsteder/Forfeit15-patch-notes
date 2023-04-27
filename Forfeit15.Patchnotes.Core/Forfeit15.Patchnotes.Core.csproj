@@ -7,7 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Forfeit15.Postgres" Version="0.0.7" />
+      <PackageReference Include="Forfeit15.Postgres" Version="1.0.0" />
+      <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
       <PackageReference Include="Refit" Version="6.3.2" />
     </ItemGroup>
     <ItemGroup>

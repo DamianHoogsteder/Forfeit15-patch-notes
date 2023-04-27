@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Forfeit15.Patchnotes.ApiKeyAuth;
+using Forfeit15.Patchnotes.Core.Messaging;
 using Forfeit15.Patchnotes.Core.Patchnotes.Services;
 using Forfeit15.Patchnotes.Core.Patchnotes.Services.InfoNodes;
 using Forfeit15.Patchnotes.Core.Patchnotes.Services.InfoNodes.Implementations;
@@ -29,6 +30,7 @@ builder.Services.AddTransient<IPatchnoteService, PatchnoteService>();
 builder.Services.AddTransient<IPatchnoteRepository, PatchnoteRepository>();
 builder.Services.AddTransient<IInfoNodeService, InfoNodeService>();
 builder.Services.AddTransient<IInfoNodeRepository, InfoNodeRepository>();
+builder.Services.AddSingleton<MessageService>(new MessageService("amqp://admin:password@localhost:5672/", "forfeit15-updates"));
 
 builder.Services
     .AddControllers().AddJsonOptions(options =>
