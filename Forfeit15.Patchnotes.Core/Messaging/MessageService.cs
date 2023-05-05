@@ -18,6 +18,7 @@ public class MessageService
 
     public void SendMessage(UpdateMessage message)
     {
+        const string queueName = "forfeit15";
         var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
 
         var factory = new ConnectionFactory() { Uri = new Uri(_connectionString) };
@@ -26,7 +27,7 @@ public class MessageService
 
         channel.ExchangeDeclare(_exchangeName, ExchangeType.Fanout);
 
-        var queueName = "forfeit15";
+        
         channel.QueueDeclare(queueName, durable: false, exclusive: false, autoDelete: false);
         channel.QueueBind(queueName, _exchangeName, routingKey: "");
         
