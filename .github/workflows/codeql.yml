@@ -25,6 +25,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      
+    - name: Add custom package source
+      run: dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username DamianHoogsteder --password ${{ secrets.ACCESS_SECRET }} --store-password-in-clear-text --name github 
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
