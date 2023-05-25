@@ -57,4 +57,4 @@ jobs:
         with:
           push: true
           tags: zephtos/forfeit15:latest
-          dockerfile: Forfeit15.Patchnotes/Dockerfile
+          context: Forfeit15.Patchnotes/Dockerfile
