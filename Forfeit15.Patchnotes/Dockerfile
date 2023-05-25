@@ -10,7 +10,7 @@ USER dotnetuser
 WORKDIR /home/dotnetuser/app
 
 # copy application files into container
-COPY ../build .
+COPY ./build .
 
 # expose port for communication
 EXPOSE 80
