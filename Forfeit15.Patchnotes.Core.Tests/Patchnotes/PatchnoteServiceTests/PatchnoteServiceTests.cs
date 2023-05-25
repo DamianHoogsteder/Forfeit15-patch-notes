@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using FluentAssertions;
+using Forfeit15.Patchnotes.Core.Messaging;
 using Forfeit15.Patchnotes.Core.Patchnotes.Services.Patchnotes.Implementations;
 using Forfeit15.Patchnotes.Postgres.Repositories;
 using Forfeit15.Patchnotes.Postgres.Repositories.PatchNotes;
@@ -13,12 +14,13 @@ public class PatchNoteServiceTests
 {
     private PatchnoteService _patchNoteService;
     private Mock<IPatchnoteRepository> _patchnoteRepository;
+    private Mock<MessageService> _messageService;
 
     [SetUp]
     public void SetUp()
     {
         _patchnoteRepository = new Mock<IPatchnoteRepository>();
-        _patchNoteService = new PatchnoteService(_patchnoteRepository.Object);
+        _patchNoteService = new PatchnoteService(_patchnoteRepository.Object, _messageService.Object);
     }
 
     [Test]
