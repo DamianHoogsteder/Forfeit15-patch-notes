@@ -8,7 +8,7 @@ ENV NUGET_AT=${NUGET_AT}
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj", "Forfeit15.Patchnotes/"]
-RUN dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username DamianHoogsteder --password $NUGET_AT --store-password-in-clear-text --name github
+RUN dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username DamianHoogsteder --password $NUGET_AT -StorePasswordInClearText --name github
 RUN dotnet restore "Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj"
 
 WORKDIR "/src/Forfeit15.Patchnotes"
