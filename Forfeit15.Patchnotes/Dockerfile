@@ -5,9 +5,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
+COPY ["Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj", "Forfeit15.Patchnotes/"]
+WORKDIR /app
 COPY *.csproj .
 COPY ./nuget.config .
-COPY ["Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj", "Forfeit15.Patchnotes/"]
 RUN dotnet restore "Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj"
 
 WORKDIR "/src/Forfeit15.Patchnotes"
