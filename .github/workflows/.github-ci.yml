@@ -58,5 +58,7 @@ jobs:
           push: true
           tags: zephtos/forfeit15:latest
           file: Forfeit15.Patchnotes/Dockerfile
-        env:
-          NUGET_AT: ${{ secrets.ACCESS_SECRET }}
+          build-args: |
+            NUGET_USERNAME=${{ env.NUGET_USERNAME }}
+            NUGET_PASSWORD=${{ secrets.ACCESS_TOKEN }}
+         
