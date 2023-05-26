@@ -15,7 +15,7 @@ COPY ["Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj", "Forfeit15.Patchnotes/
 
 RUN echo ${NUGET_AT}
 
-RUN dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username ${NUGET_USERNAME} --store-password-in-clear-text --password ${NUGET_PASSWORD} --name github
+RUN dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username ${NUGET_USERNAME} --store-password-in-clear-text --password ${NUGET_PASSWORD}
 RUN dotnet restore "Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj"
 
 WORKDIR "/src/Forfeit15.Patchnotes"
