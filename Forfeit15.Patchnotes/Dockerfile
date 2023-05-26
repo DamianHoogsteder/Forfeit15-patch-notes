@@ -9,7 +9,7 @@ ARG Nuget_CustomFeedPassword
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj", "Forfeit15.Patchnotes/"]
-COPY ./nuget.config .
+COPY ["Forfeit15.Patchnotes/nuget.config", "Forfeit15.Patchnotes/"]
 RUN dotnet restore "Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj"
 
 WORKDIR "/src/Forfeit15.Patchnotes"
