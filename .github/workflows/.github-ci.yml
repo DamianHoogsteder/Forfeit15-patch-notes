@@ -58,6 +58,8 @@ jobs:
           docker push zephtos/forfeit15:latest
         env:
           NUGET_USERNAME: ${{ env.NUGET_USERNAME }}
+          DOCKERFILE: Forfeit15.Patchnotes/Dockerfile
+
 
 
 
