@@ -54,7 +54,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push
         run: |
-          docker build --build-arg NUGET_USERNAME=$NUGET_USERNAME --build-arg NUGET_PASSWORD=${{ secrets.NUGET_PASSWORD }} -t zephtos/forfeit15:latest -f Forfeit15.Patchnotes/Dockerfile .
+          docker build --build-arg NUGET_USERNAME=$NUGET_USERNAME --build-arg NUGET_PASSWORD=${{ secrets.NUGET_PASSWORD }} -t zephtos/forfeit15:latest -f ${{ env.DOCKERFILE }} .
           docker push zephtos/forfeit15:latest
         env:
           NUGET_USERNAME: ${{ env.NUGET_USERNAME }}
