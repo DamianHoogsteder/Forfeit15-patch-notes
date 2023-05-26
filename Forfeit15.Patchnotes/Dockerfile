@@ -13,9 +13,10 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj", "Forfeit15.Patchnotes/"]
 
-RUN echo ${NUGET_AT}
+RUN echo NUGET_USERNAME
+RUN echo NUGET_PASSWORD
 
-RUN dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username DamianHoogsteder --store-password-in-clear-text --password ${NUGET_PASSWORD}
+RUN dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username ${NUGET_USERNAME} --store-password-in-clear-text --password ${NUGET_PASSWORD}
 RUN dotnet restore "Forfeit15.Patchnotes/Forfeit15.Patchnotes.csproj"
 
 WORKDIR "/src/Forfeit15.Patchnotes"
