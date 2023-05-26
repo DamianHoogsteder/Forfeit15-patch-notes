@@ -52,6 +52,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Change working directory
+        run: cd Forfeit15.Patchnotes
       - name: Build and push
         env:
           NUGET_USERNAME: ${{ secrets.ACCESS_TOKEN }}
@@ -60,6 +64,5 @@ jobs:
           docker build --tag zephtos/forfeit15:latest \
             --build-arg NUGET_USERNAME=${NUGET_USERNAME} \
             --build-arg NUGET_PASSWORD=${NUGET_PASSWORD} \
-            --file Forfeit15.Patchnotes/Dockerfile \
             .
           docker push zephtos/forfeit15:latest
