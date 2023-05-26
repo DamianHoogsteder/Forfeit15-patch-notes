@@ -52,21 +52,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Create nuget.config
-        run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > nuget.config
-          echo '<configuration>' >> nuget.config
-          echo '  <packageSources>' >> nuget.config
-          echo '    <add key="public" value="https://api.nuget.org/v3/index.json" />' >> nuget.config
-          echo '    <add key="github" value="https://nuget.pkg.github.com/DamianHoogsteder/index.json"  />' >> nuget.config
-          echo '  </packageSources>' >> nuget.config
-          echo '  <packageSourceCredentials>' >> nuget.config
-          echo '    <github>' >> nuget.config
-          echo '      <add key="Username" value="${{ env.NUGET_USERNAME }}" />' >> nuget.config
-          echo '      <add key="ClearTextPassword" value="${{ secrets.ACCESS_TOKEN }}" />' >> nuget.config
-          echo '    </github>' >> nuget.config
-          echo '  </packageSourceCredentials>' >> nuget.config
-          echo '</configuration>' >> nuget.config
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
