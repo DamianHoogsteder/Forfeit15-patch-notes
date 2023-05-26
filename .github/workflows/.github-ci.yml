@@ -58,3 +58,6 @@ jobs:
           push: true
           tags: zephtos/forfeit15:latest
           file: Forfeit15.Patchnotes/Dockerfile
+          build-args: |
+            Nuget_CustomFeedUserName=${{env.NUGET_USERNAME}}
+            Nuget_CustomFeedPassword=${{secrets.ACCESS_TOKEN}}
