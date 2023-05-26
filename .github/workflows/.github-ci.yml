@@ -17,7 +17,7 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_SDK_VERSION }}
       - name: Add custom package source
-        run: dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username DamianHoogsteder --password ${{ secrets.ACCESS_SECRET }} --store-password-in-clear-text --name github 
+        run: dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username ${{env.NUGER_USERNAME}} --password ${{ secrets.ACCESS_SECRET }} --store-password-in-clear-text --name github 
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
@@ -34,7 +34,7 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_SDK_VERSION }}
       - name: Add custom package source
-        run: dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username DamianHoogsteder --password ${{ secrets.ACCESS_SECRET }} --store-password-in-clear-text --name github 
+        run: dotnet nuget add source https://nuget.pkg.github.com/DamianHoogsteder/index.json --username ${{env.NUGER_USERNAME}} --password ${{ secrets.ACCESS_SECRET }} --store-password-in-clear-text --name github 
       - name: Restore dependencies
         run: dotnet restore
       - name: Test
