@@ -1,8 +1,8 @@
-﻿name: CI
+name: CI
 
 on:
   push:
-    branches: [ "main", "develop"]
+    branches: [ "main", "develop" ]
   pull_request:
     branches: [ "main" ]
 
@@ -22,7 +22,7 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release
-        
+
   test:
     runs-on: ubuntu-latest
     needs: build
@@ -39,7 +39,7 @@ jobs:
         run: dotnet restore
       - name: Test
         run: dotnet test --configuration Release
-        
+
   docker_build:
     runs-on: ubuntu-latest
     steps:
@@ -53,11 +53,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          tags: zephtos/forfeit15:latest
-          file: Forfeit15.Patchnotes/Dockerfile
         env:
           NUGET_USERNAME: ${{ secrets.ACCESS_TOKEN }}
-          NUGET_PASSWORD: ${{ secrets.ACCESS_TOKEN }}      
+          NUGET_PASSWORD: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          docker build --tag zephtos/forfeit15:latest \
+            --build-arg NUGET_USERNAME=${NUGET_USERNAME} \
+            --build-arg NUGET_PASSWORD=${NUGET_PASSWORD} \
+            --file Forfeit15.Patchnotes/Dockerfile \
+            .
+          docker push zephtos/forfeit15:latest
