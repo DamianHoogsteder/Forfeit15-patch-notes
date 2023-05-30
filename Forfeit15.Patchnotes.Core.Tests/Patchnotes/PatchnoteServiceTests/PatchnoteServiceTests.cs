@@ -5,6 +5,7 @@ using Forfeit15.Patchnotes.Core.Patchnotes.Services.Patchnotes.Implementations;
 using Forfeit15.Patchnotes.Postgres.Repositories;
 using Forfeit15.Patchnotes.Postgres.Repositories.PatchNotes;
 using Forfeit15.Postgres.Models;
+using Microsoft.Extensions.Logging;
 using Moq;
 
 namespace Forfeit15.Patchnotes.Core.Tests.Patchnotes.PatchnoteServiceTests;
@@ -15,12 +16,13 @@ public class PatchNoteServiceTests
     private PatchnoteService _patchNoteService;
     private Mock<IPatchnoteRepository> _patchnoteRepository;
     private Mock<MessageService> _messageService;
+    private Mock<ILogger<PatchnoteService>> _logger;
 
     [SetUp]
     public void SetUp()
     {
         _patchnoteRepository = new Mock<IPatchnoteRepository>();
-        _patchNoteService = new PatchnoteService(_patchnoteRepository.Object, _messageService.Object);
+        _patchNoteService = new PatchnoteService(_patchnoteRepository.Object, _messageService.Object, _logger.Object);
     }
 
     [Test]

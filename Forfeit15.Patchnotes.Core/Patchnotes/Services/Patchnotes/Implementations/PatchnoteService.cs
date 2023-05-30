@@ -2,9 +2,9 @@
 using Forfeit15.Patchnotes.Core.Messaging;
 using Forfeit15.Patchnotes.Core.Messaging.Contracts;
 using Forfeit15.Patchnotes.Core.Patchnotes.Contracts;
-using Forfeit15.Patchnotes.Postgres.Repositories;
 using Forfeit15.Patchnotes.Postgres.Repositories.PatchNotes;
 using Forfeit15.Postgres.Models;
+using Microsoft.Extensions.Logging;
 
 namespace Forfeit15.Patchnotes.Core.Patchnotes.Services.Patchnotes.Implementations;
 
@@ -12,15 +12,19 @@ public class PatchnoteService : IPatchnoteService
 {
     private readonly IPatchnoteRepository _patchnoteRepository;
     private readonly MessageService _messageService;
+    private readonly ILogger<PatchnoteService> _logger;
 
-    public PatchnoteService(IPatchnoteRepository patchNoteDbContext, MessageService messageService)
+    public PatchnoteService(IPatchnoteRepository patchNoteDbContext, MessageService messageService,
+        ILogger<PatchnoteService> logger)
     {
         _patchnoteRepository = patchNoteDbContext;
         _messageService = messageService;
+        _logger = logger;
     }
 
     public async Task<Collection<PatchNote>> GetAllAsync(CancellationToken cancellationToken)
     {
+        _logger.LogInformation("Get all completed successfully");
         return new Collection<PatchNote>(await _patchnoteRepository.GetAllAsync(cancellationToken));
     }
 
@@ -44,7 +48,7 @@ public class PatchnoteService : IPatchnoteService
             Description = request.PatchNoteToBeAdded.Description,
             TimeStamp = DateTime.UtcNow
         };
-        
+
         _messageService.SendMessage(message);
 
         response.Result = ResponseResult.Succesful;

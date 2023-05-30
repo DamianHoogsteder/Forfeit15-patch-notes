@@ -1,6 +1,4 @@
-﻿using Forfeit15.Patchnotes.Core.Messaging;
-using Forfeit15.Patchnotes.Core.Patchnotes.Contracts;
-using Forfeit15.Patchnotes.Core.Patchnotes.Services;
+﻿using Forfeit15.Patchnotes.Core.Patchnotes.Contracts;
 using Forfeit15.Patchnotes.Core.Patchnotes.Services.Patchnotes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +16,7 @@ public class PatchnoteController : ControllerBase
 {
     //Services
     private readonly IPatchnoteService _patchnoteService;
+    
     public PatchnoteController(IPatchnoteService patchnoteService)
     {
         _patchnoteService = patchnoteService;
