@@ -3,7 +3,7 @@
 namespace Forfeit15.Patchnotes.Core.Messaging.Contracts;
 
 [DataContract]
-public class UpdateMessage
+public class UpdateMessage : Message
 {
     [DataMember] 
     public string Type { get; set; } = null!;

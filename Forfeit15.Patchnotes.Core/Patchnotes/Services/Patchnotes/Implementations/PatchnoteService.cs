@@ -54,4 +54,22 @@ public class PatchnoteService : IPatchnoteService
         response.Result = ResponseResult.Succesful;
         return response;
     }
+
+    public async Task<NewPatchNoteResponse> UpdatePatchnoteAsync(NewPatchNoteRequest request,
+        CancellationToken cancellationToken)
+    {
+        var response = new NewPatchNoteResponse();
+        await _patchnoteRepository.UpdateAsync(request.PatchNoteToBeAdded, cancellationToken);
+
+        var message = new UpdateEvent()
+        {
+            PatchId = request.PatchNoteToBeAdded.Id,
+            Subscriptor = "patch-update"
+        };
+
+        _messageService.SendMessage(message);
+
+        response.Result = ResponseResult.Succesful;
+        return response;
+    }
 }

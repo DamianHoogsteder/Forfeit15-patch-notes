@@ -9,4 +9,5 @@ public interface IPatchnoteService
     Task<Collection<PatchNote>> GetAllAsync(CancellationToken cancellationToken);
     Task<GetByIdResponse> GetByIdAsync(Guid Id, CancellationToken cancellationToken);
     Task<NewPatchNoteResponse> AddNewPatchNoteAsync(NewPatchNoteRequest request, CancellationToken cancellationToken);
+    Task<NewPatchNoteResponse> UpdatePatchnoteAsync(NewPatchNoteRequest request, CancellationToken cancellationToken);
 }

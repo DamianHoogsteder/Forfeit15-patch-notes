@@ -16,7 +16,7 @@ public class MessageService
         _exchangeName = exchangeName;
     }
 
-    public void SendMessage(UpdateMessage message)
+    public void SendMessage<T>(T message) where T : Message
     {
         const string queueName = "forfeit15";
         var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
@@ -26,8 +26,6 @@ public class MessageService
         using var channel = connection.CreateModel();
 
         channel.ExchangeDeclare(_exchangeName, ExchangeType.Fanout);
-
-        
         channel.QueueDeclare(queueName, durable: false, exclusive: false, autoDelete: false);
         channel.QueueBind(queueName, _exchangeName, routingKey: "");
         
