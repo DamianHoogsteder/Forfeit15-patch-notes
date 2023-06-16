@@ -31,10 +31,4 @@ public class PatchnoteRepository : IPatchnoteRepository
         await _patchNoteDbContext.PatchNotes.AddAsync(request, cancellationToken);
         await _patchNoteDbContext.SaveChangesAsync(cancellationToken);
     }
-
-    public async Task UpdateAsync(PatchNote request, CancellationToken cancellationToken)
-    {
-        _patchNoteDbContext.PatchNotes.Update(request);
-        await _patchNoteDbContext.SaveChangesAsync(cancellationToken);
-    }
 }

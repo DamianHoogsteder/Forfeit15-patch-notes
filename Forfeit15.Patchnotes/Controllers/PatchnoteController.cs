@@ -58,17 +58,4 @@ public class PatchnoteController : ControllerBase
     {
         return Ok(await _patchnoteService.AddNewPatchNoteAsync(request, cancellationToken));
     }
-    
-    /// <summary>
-    /// Gets a collection of patchnotes
-    /// </summary>
-    /// <returns>Collection of patchnotes</returns>
-    [Authorize]
-    [HttpPatch]
-    [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    public async Task<IActionResult> UpdateNewPatchnoteAsync([FromBody] NewPatchNoteRequest request, CancellationToken cancellationToken)
-    {
-        return Ok(await _patchnoteService.UpdatePatchnoteAsync(request, cancellationToken));
-    }
 }
